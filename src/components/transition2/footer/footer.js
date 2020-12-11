@@ -13,7 +13,7 @@ class Footer extends React.Component {
                     <div align="center" className="socialbtns">
                     <ul>
                     <li><a href="https://twitter.com" className="fa fa-lg fa-twitter"></a></li>
-                    <li><a href="mailto:" className="fa fa-lg fa-google-plus"></a></li>
+                    <li><a href="mailto:xyz" className="fa fa-lg fa-google-plus"></a></li>
                     <li><a href="https://www.instagram.com" className="fa fa-lg fa-instagram"></a></li>
                     </ul>
                     </div>
