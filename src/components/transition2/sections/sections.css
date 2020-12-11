@@ -1,0 +1,279 @@
+.sections{
+  display:grid;
+  grid-template-columns: 1fr;
+  max-width:90vw;
+  margin:10vh 5vw;
+  margin-bottom:0;
+}
+
+.sections .heading{
+  grid-row:1;
+  text-align:center;
+  margin-bottom:5rem;
+}
+
+.sections hr{
+  width:100px;
+  height:5px;
+  background-color:#1e021e;
+  border:10px 10px #1e021e;
+  box-shadow:none;
+}
+
+.sections .section1{
+  grid-row:2;
+  display:grid;
+}
+
+.sections .section2{
+  grid-row:3;
+  display:grid;
+}
+
+.sections .section3{
+  grid-row:4;
+  display:grid;
+}
+
+.sections .section4{
+  grid-row:5;
+  display:grid;
+}
+
+.sections .section5{
+  grid-row:6;
+  display:grid;
+}
+
+.sections .section6{
+  grid-row:7;
+  display:grid;
+}
+
+.sections .section1 .text{
+  grid-column:1;
+  width:45vw;
+  margin-bottom:4vw;
+}
+
+.sections .section2 .text{
+  grid-column:2;
+  width:45vw;  
+  text-align:right;
+  margin:2vw;
+}
+
+.sections .section3 .text{
+  grid-column:1;
+  width:45vw;
+  margin:2vw;
+}
+
+.sections .section4 .text{
+  grid-column:2;
+  width:45vw;  
+  text-align:right;
+  margin:2vw;
+}
+
+.sections .section5 .text{
+  grid-column:1;
+  width:45vw;
+  margin:2vw;
+}
+
+.sections .section6 .text{
+  grid-column:2;
+  width:45vw;
+  text-align:right;
+  margin-top:4vw;
+  margin-bottom:10vw;
+}
+
+.section_headings{
+  font-size:2.5rem;
+}
+
+p{
+  font-size:1.3rem;
+
+}
+
+.sections .section1 .img{
+  grid-column:2;
+  width:30vw;
+  margin:auto;
+}
+
+.sections .section2 .img1{
+  grid-column:1;
+  width:30vw;
+  margin:auto;
+  display: unset;
+}
+
+.sections .section2 .img2{
+  grid-column:1;
+  width:30vw;
+  margin:auto;
+  display:none;
+}
+
+.sections .section3 .img{
+  grid-column:2;
+  width:30vw;
+  margin:auto;
+}
+
+.sections .section4 .img1{
+  grid-column:1;
+  width:30vw;
+  margin:auto;
+  display: unset;
+}
+
+.sections .section4 .img2{
+  grid-column:1;
+  width:30vw;
+  margin:auto;
+  display:none;
+}
+
+.sections .section5 .img{
+  grid-column:2;
+  width:30vw;
+  margin:auto;
+}
+
+.sections .section6 .img1{
+  grid-column:1;
+  width:30vw;
+  margin:auto;
+  display: unset;
+}
+
+.sections .section6 .img2{
+  grid-column:1;
+  width:30vw;
+  margin:auto;
+  display:none;
+}
+
+@media screen and (max-width: 750px){
+  .sections{
+    display:block;
+    margin-bottom:1rem;
+  }
+  
+.sections .heading{
+  font-size:2rem;
+  margin-bottom:0;
+}
+
+.sections h1{
+  text-align:center;
+  max-width:90vw;
+  padding:0 2vw;
+  font-size:2rem;
+  margin:auto;
+  margin-top:3rem;
+  margin-bottom:0rem;
+}
+
+p{
+  font-size:1rem;
+}
+
+.sections hr{
+margin-bottom:4rem;
+}
+  .sections .section1, .sections .section2, .sections .section3, .sections .section4, .sections .section5, .sections .section6{
+    display:block;
+  }
+
+  .sections .section1 .text, .sections .section2 .text, .sections .section3 .text, .sections .section4 .text, .sections .section5 .text, .sections .section6 .text{
+    width:90vw;
+  }
+
+  .section_headings{
+    font-size:2rem;
+    line-height:2.5rem;
+  }
+  .sections .section2 .text{  
+    text-align:left;
+    margin:0vw;
+  }
+
+  .sections .section2 .img1{
+    grid-column:1;
+    width:80vw;
+    margin:auto;
+    display: none;
+  }
+  
+  .sections .section2 .img2{
+    grid-column:1;
+    width:80vw;
+    margin:auto;
+    display: unset;
+  }
+
+  .sections .section4 .text{  
+    text-align:left;
+    margin:0vw;
+  }
+
+  .sections .section4 .img1{
+    grid-column:1;
+    width:80vw;
+    margin:auto;
+    display: none;
+  }
+  
+  .sections .section4 .img2{
+    grid-column:1;
+    width:80vw;
+    margin:auto;
+    display: unset;
+  }
+
+  .sections .section6 .text{  
+    text-align:left;
+    margin:0vw;
+  }
+
+  .sections .section6 .img1{
+    grid-column:1;
+    width:80vw;
+    margin:auto;
+    display: none;
+  }
+  
+  .sections .section6 .img2{
+    grid-column:1;
+    width:80vw;
+    margin:auto;
+    display: unset;
+    margin-bottom:2rem;
+  }
+
+  .sections .section3 .img{
+    grid-column:2;
+    width:80vw;
+    margin:auto;
+  }
+
+  .sections .section1 .img{
+    grid-column:2;
+    width:80vw;
+    margin:auto;
+  }
+
+  .sections .section5 .img{
+    grid-column:2;
+    width:80vw;
+    margin:auto;
+    margin-bottom:1rem;
+
+  }
+}

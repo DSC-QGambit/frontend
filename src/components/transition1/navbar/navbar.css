@@ -1,0 +1,26 @@
+.logo{
+  width:10vw;
+  margin-left:-10vw;
+  margin-top:-8px;
+}
+
+.menu_nav{
+margin-right:-10vw;
+}
+
+.login_button{
+  color:white;
+  padding:10px 20px;
+  font-size:1.3rem;
+  position:relative;
+  text-decoration: none;
+  border-radius:15px;
+  border:none;
+}
+
+@media screen and (max-width: 750px){
+  .logo{
+    width:20vw;
+    margin-left:0;
+  }
+}
