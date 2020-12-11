@@ -59,16 +59,8 @@
     border: 2px solid #000000;
 }
 
-.demo_button{
+.browse_button{
     display:grid;
-}
-
-.demo_coming_soon{
-      color:rgba(0, 0, 0, 0.8);
-      font-size:0.8rem;
-      grid-row:2;
-      grid-column:1;
-      margin-top:1rem;
 }
 
 .moreimg{
@@ -84,10 +76,6 @@
         margin-bottom:5vh;
     }
 
-    
-.demo_coming_soon{
-    text-align:center;
-}
 .morecontent h1{
     margin-top:1rem;
     font-weight:500;

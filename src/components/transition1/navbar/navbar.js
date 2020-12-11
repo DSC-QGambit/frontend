@@ -26,21 +26,21 @@ const Navbar = () => {
    return (
       <div className="navbar">
          <div className="navbar-fixed">
-            <nav className="nav-wrapper " style={{ "background-color": "#4c53cbe0" }}>
+            <nav className="nav-wrapper " style={{ "backgroundColor": "white" }}>
                <div className="container">
                   <a href="#" data-target="mobile-nav" className="sidenav-trigger">
-                     <i className="material-icons" style={{ color: "#dfdfdf" }}>menu</i>
+                     <i className="material-icons" style={{ color: "#5f8ddc" }}>menu</i>
                   </a>
                   {/* <img src={img} alt="" className="logo"/> */}
                   <ul className="right hide-on-med-and-down menu_nav" >
                      {links.map(link => (
                         <li key={link.id}>
-                           <HLink style={{'color':'#dfdfdf', 'font-size':'1.2rem'}} to={link.to} >{link.Name}</HLink>
+                           <HLink style={{'color':'#5f8ddc', 'fontSize':'1.2rem'}} to={link.to} >{link.Name}</HLink>
                         </li>
                      ))}
                      <li >
                         <button className="login_button">                        
-                           <a style={{'color':'#4c53cbe0'}} href={"https://google.com"} >{"Login"}</a>
+                           <a style={{'color':'#5f8ddc'}} href={"https://google.com"} >{"Login"}</a>
                         </button>
                      </li>
                   </ul>
@@ -48,10 +48,10 @@ const Navbar = () => {
             </nav>
          </div>
 
-         <ul className="sidenav" id='mobile-nav' style={{ "background-color": "#4c53cbe0", 'padding-top':'20vh' }}>
+         <ul className="sidenav" id='mobile-nav' style={{ "backgroundColor": "white", 'paddingTop':'20vh' }}>
             {links_mob.map(link => (
                <li key={link.id} >
-                  <HLink className='white-text' style={{'margin':'5vh 0', 'text-align':'center'}}
+                  <HLink className='white-text' style={{'margin':'5vh 0', 'textAlign':'center'}}
                   to={link.to} >{link.Name}</HLink>
                </li>
             ))}

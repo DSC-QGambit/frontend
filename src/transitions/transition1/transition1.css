@@ -1,15 +1,16 @@
 .transition1{
-    background-color:#1f2371e0;
+    background-color:#5f8ddc;
     /* background-image:url("../../img/main_bg.jpg"); */
     background-size: cover;
     background-repeat: no-repeat;
     color:white;
 }
 
-.globe{
+.pic{
     position: absolute;
-    left:80vw;
-    top:50vh;
+    left:50vw;
+    top:0vh;
+    width: 40vw;
 }
 
 .content{
@@ -145,7 +146,7 @@
 }
 
 @media screen and (max-width: 750px){
-    .globe{
+    .pic{
         left:0vw;
         top:60vh;
     }
