@@ -13,13 +13,13 @@ const Navbar = () => {
 
    const links = [
       { id: 1, Name: 'Home', to: '/#home' },
-      { id: 2, Name: 'List', to: '/list' },
+      { id: 2, Name: 'Browse', to: '/list' },
       // { id: 3, Name: 'Log In', to: 'https://google.com' },
    ];
 
    const links_mob = [
       { id: 1, Name: 'Home', to: '/#home' },
-      { id: 2, Name: 'List', to: '/list' },
+      { id: 2, Name: 'Browse', to: '/list' },
       { id: 3, Name: 'Log In', to: 'https://google.com' },
    ];
 
