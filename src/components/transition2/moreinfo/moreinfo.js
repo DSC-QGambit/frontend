@@ -9,7 +9,8 @@ export default () => {
       <div className="moretext">
             <h1>How do we do it?</h1>
     
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <p>
+We collect the top news articles on any topic you want, from the most well reputed sites and list them out for you to browse through. Once you decide what you want to know more about, you can view an article on the topic, except what you will be able to view is not just the article. You will be shown data which we have curated from twitter feeds, which allow us to tell you how people feel towards any particular topic by performing sentimental analysis on them. We will visualize this data for you and also show you the top opinions from both sides on any matter. As for which side you are on, will be for you to decide.</p>
 
             <div className="browse_button">
             <button className="morebutton morebutton3 button_anim3">
