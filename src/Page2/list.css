@@ -1,6 +1,3 @@
-
-
-
 #about h1 {
     font-family: 'Dosis',sans-serif;
     padding-bottom:4rem;
@@ -16,9 +13,8 @@
     margin: 0 auto;   
 }
 
-
 .list_page{
-    background-color: #2e2f40e0;
+    background-color: #5f8ddc;
     color:white;
 }
 
@@ -83,7 +79,7 @@
 }
 
 #about #row1 #contain1 .person1 {
-    background:url("./img/ph.jpg");
+    background:url("../img/ph.jpg");
     background-repeat:no-repeat;
     background-size:contain;
     height:320px;
@@ -98,7 +94,7 @@
 }
 
 #about #row1 #contain2 .person2 {
-    background:url("./img/ph.jpg");
+    background:url("../img/ph.jpg");
     background-repeat:no-repeat;
     background-size:contain;
     height:320px;
@@ -113,7 +109,7 @@
 }
 
 #about #row1 #contain3 .person3 {
-    background:url("./img/ph.jpg");
+    background:url("../img/ph.jpg");
     background-repeat:no-repeat;
     background-size:contain;
     height:320px;
@@ -128,7 +124,7 @@
 }
 
 #about #row2 #contain4 .person4 {
-    background:url("./img/ph.jpg");
+    background:url("../img/ph.jpg");
     background-repeat:no-repeat;
     background-size:contain;
     height:320px;
@@ -157,7 +153,7 @@
 }
 
 #about #row2 #contain6 .person6 {
-    background:url("./img/ph.jpg");
+    background:url("../img/ph.jpg");
     background-repeat:no-repeat;
     background-size:contain;
     height:320px;

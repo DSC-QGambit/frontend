@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import './index.css';
 import FullPage from './App.js';
-import List from './list.js';
+import List from './Page2/list.js';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
