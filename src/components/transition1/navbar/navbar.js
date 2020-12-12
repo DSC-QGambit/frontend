@@ -39,9 +39,9 @@ const Navbar = () => {
                         </li>
                      ))}
                      <li >
-                        <button className="login_button">                        
+                        {/* <button className="login_button">                        
                            <a style={{'color':'#5f8ddc'}} href={"https://google.com"} >{"Login"}</a>
-                        </button>
+                        </button> */}
                      </li>
                   </ul>
                </div>
