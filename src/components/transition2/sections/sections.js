@@ -23,10 +23,10 @@ class App extends React.Component {
   <div className="section1">
     <div className="text">
       <h2 className="section_headings">
-      Lorem Ipsum
+      For You, The Consumer
       </h2>
       <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      If you consume news on a daily basis, our platform is there for you with the most accurate and reliable sources. You don’t need to worry about misinformation on our platform. We are very meticulous to provide you with the right information. We respect your freedom of thinking and opinions, and we don’t want to interfere with that.
       </p>
     </div>
     <img src={img1} alt="" className="img"/>
@@ -36,10 +36,10 @@ class App extends React.Component {
   <img src={img2} alt="" className="img1"/>
     <div className="text">
       <h2 className="section_headings">
-      Lorem Ipsum
+      For You, The News Provider
       </h2>
       <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      If you are a news provider but don’t have the capital to scale your operations, you can use our platform. We will facilitate you to provide your content into our platform. All you need to have is a factually accurate news source which we’ll be verifying to comply with our standards. We understand how difficult it might be to compete with the so-called big players. We help you transition into a scalable news provider through our platform.
       </p>
     </div>
     <img src={img2} alt="" className="img2"/>
@@ -48,10 +48,11 @@ class App extends React.Component {
   <div className="section3">
     <div className="text">
       <h2 className="section_headings">
-      Lorem Ipsum
+      For You, A Company
       </h2>
       <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.      </p>
+      If you are a government org and or a survey collecting company, you can use our services to understand the pattern of how people think and perceive things in a certain demographic. This service will be provided only during times of emergencies like a pandemic, natural calamities, etc. No server data would be provided to third party organizations. We will be providing you with the required statistics to help you deal with crisis situations as we respect the privacy of everyone who uses our platform.
+    </p>
     </div>
     <img src={img3} alt="" className="img"/>
   </div>
@@ -60,10 +61,10 @@ class App extends React.Component {
   <img src={img4} alt="" className="img1"/>
     <div className="text">
       <h2 className="section_headings">
-      Lorem Ipsum
+      You Make The Rules
       </h2>
       <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      The information we consume must not be confined to our own opinions and likes. After all, the human race has evolved over several iterations through collaborations and working together as a community. Therefore, understanding different perspectives of things is the need of the hour. <br/><br/>You don’t need search engines to decide what you like. We want you to decide that for yourselves. Take charge of your own decisions and broaden your horizon.
       </p>
     </div>
     <img src={img4} alt="" className="img2"/>

@@ -14,17 +14,18 @@ export default () => {
 
           <h1>Let's Pop Your Filter Bubble</h1>
   
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          <p>The things you click, like, and post result in more of the same. Netflix suggests new things to watch based on what you have already watched. Twitter will suggest who to follow based on other people you follow. Facebook tailors your newsfeed based on who you interact with. Google shows different search results based on what you have searched before.
+Personalization algorithms create a safe, predictable space. Rather than making our world bigger, our world shrinks a little. Call it an echo chamber or a filter bubble, it’s worrisome that personalization narrows our exposure to new ideas and even spreads misinformation. But fret not, for we're here to right the wrong.</p>
 
           <div className="two_buttons">
               <div className="login">
                   <a href="https://google.com">
                       <button className="button button1 button_anim1">
-                        Log In
+                        Browse News
                       </button>
                   </a>
                   <a href="https://google.com" className="have_account">
-                    Already have an account?
+                    We'll make it worth your while.
                   </a>
               </div>
 
