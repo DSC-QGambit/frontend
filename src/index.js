@@ -7,7 +7,7 @@ import List from './list.js';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-    <Router basename="/demos">
+    <Router basename="/">
       <div>
         <Switch>
           <Route exact path="/" component={FullPage} />

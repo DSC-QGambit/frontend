@@ -28,7 +28,7 @@ const Navbar = () => {
          <div className="navbar-fixed">
             <nav className="nav-wrapper " style={{ "backgroundColor": "white" }}>
                <div className="container">
-                  <a href="#" data-target="mobile-nav" className="sidenav-trigger">
+                  <a href="/" data-target="mobile-nav" className="sidenav-trigger">
                      <i className="material-icons" style={{ color: "#5f8ddc" }}>menu</i>
                   </a>
                   {/* <img src={img} alt="" className="logo"/> */}
