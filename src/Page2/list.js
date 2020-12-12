@@ -32,6 +32,17 @@ const AllTimeFavorites = () => {
     window.scrollTo(0, 0)
   }, [post_id])
 
+  const products_display = products.map((data, idx) => {
+    return(
+      <div key={idx} className="card">
+        <h1>{data.name}</h1>
+        <p className="price">{data.price}</p>
+        <p>{data.desc}</p>
+        <p><button>Add to Cart</button></p>
+      </div>
+    )
+  });
+
   const posts = bestones.map(function(data, id) {
     return (
       <div key={id} className="blog_post" onClick={() => {setPost_id(data.id) && setShow_post(1)}}>
@@ -114,6 +125,10 @@ const AllTimeFavorites = () => {
     
     </div>
     : null }
+
+        <div className="products">
+        {products_display}
+        </div>
 
     </div>
   )
