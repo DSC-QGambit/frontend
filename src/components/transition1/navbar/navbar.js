@@ -20,7 +20,7 @@ const Navbar = () => {
    const links_mob = [
       { id: 1, Name: 'Home', to: '/#home' },
       { id: 2, Name: 'Browse', to: '/list' },
-      { id: 3, Name: 'Log In', to: 'https://google.com' },
+      // { id: 3, Name: 'Log In', to: 'https://google.com' },
    ];
 
    return (
