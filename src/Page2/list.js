@@ -30,6 +30,28 @@ const AllTimeFavorites = () => {
     window.scrollTo(0, 0)
   }, [post_id])
 
+  function postArticle(data) {
+      
+    fetch('/post-selected-news-article/', 
+      {
+        method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+  })
+        .then(res => res.json())
+        .then(res => console.log(res))
+        // .then(data => setPostId(data.id));
+  }
+
+//   useEffect(() => {
+//     // POST request using axios inside useEffect React hook
+//     const article = { title: 'React Hooks POST Request Example' };
+//     axios.post('https://reqres.in/api/articles', article)
+//         .then(response => console.log(response.data.id));
+
+// // empty dependency array means this effect will only run once (like componentDidMount in classes)
+// }, []);
+
   const articles_display = articles.map((data, idx) => {
     return(
       <div key={idx} className="newsposts">
@@ -37,7 +59,7 @@ const AllTimeFavorites = () => {
         <hr className = "post_hr"/>
         <img src={data.top_image} alt=""/>
         <h6 className="post_desc">{data.text.substring(0,250)}...</h6>
-        <p><button>Know More</button></p>
+        <p><button onClick={postArticle(data)}>Know More</button></p>
       </div>
     )
   });
