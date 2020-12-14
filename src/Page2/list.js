@@ -4,6 +4,8 @@ import Navbar from "../components/transition1/navbar/navbar.js"
 
 const AllTimeFavorites = () => {
 
+  /* Keeps track of whether a particular article has been selected */
+
   const [articles, setArticles] = useState([]);
 
   /* Keeps track of whether a particular article has been selected */
