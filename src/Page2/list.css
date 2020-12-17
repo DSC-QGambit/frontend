@@ -15,11 +15,22 @@
 }
 
 .newsposts{
-    width: 40vw;
+    max-width: 25vw;
     margin-left: 5vw;
-    margin-right: 5vw;
+    margin-right: 2vw;
     margin-top: 0;
+    margin-bottom: 5vh;
     float: left;
+    border-radius: 2vw;
+}
+
+.post_image{
+    background-size: 100%;
+    width: max-content;
+}
+
+.post_hr{
+    border-color: black;
 }
 
 #about {
@@ -31,8 +42,7 @@
 }
 
 .list_page{
-    background-color: #5f8ddc;
-    color:white;
+    color:black;
 }
 
 #intro {

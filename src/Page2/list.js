@@ -58,7 +58,7 @@ const AllTimeFavorites = () => {
       <div key={id} className="blog_post newsposts" onClick={() => {setPost_title(data.title) && setShow_post(1)}}>
         <h4 className="post_title">{data.title}</h4>
         <hr className = "post_hr"/>
-        <img src={data.top_image} alt=""/>
+        <img src={data.top_image} className="post_image" alt=""/>
         <h6 className="post_desc">{data.text.substring(0,250)}...</h6>
         {/* <p><button onClick={postArticle(data)}>Know More</button></p> */}
       </div>
@@ -88,7 +88,7 @@ const AllTimeFavorites = () => {
 
   return (
     <div className="">    
-     {/* <div className="list_page"> */}
+     <div className="list_page">
 
  
     {post_title==="" && !show_post &&
@@ -131,6 +131,7 @@ const AllTimeFavorites = () => {
     </div>
     : null }
 
+    </div>
     </div>
   )
 }
