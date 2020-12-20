@@ -104,7 +104,6 @@ const AllTimeFavorites = () => {
         {posts}
 
         </div>
-
         
       </div>
         
