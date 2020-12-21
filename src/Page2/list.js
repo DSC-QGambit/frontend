@@ -95,7 +95,7 @@ const AllTimeFavorites = () => {
     <div>
 
       <Navbar />
-          
+      
       <div className="main_container">
 
         <h3 className="section_name">Trending Topics</h3> 
