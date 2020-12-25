@@ -33,8 +33,6 @@ const AllTimeFavorites = () => {
       })
   }, []) //loading
 
-    /*  */
-
   function postArticle(data) {
       
     fetch('/post-selected-news-article/', 
