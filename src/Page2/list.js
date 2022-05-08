@@ -24,8 +24,9 @@ const AllTimeFavorites = () => {
   /* Gets the whole list of articles from the back end just once when the page loads */
 
   useEffect(() => {
-    fetch('/get-top-news-articles/') //https://flask-heroku-backend.herokuapp.com/get-top-news-articles/
-      .then(response => response.json())
+    // fetch('/get-top-news-articles/') //https://flask-heroku-backend.herokuapp.com/get-top-news-articles/
+    fetch('https://flask-heroku-backend.herokuapp.com/get-top-news-articles/') ///get-top-news-articles/
+    .then(response => response.json())
       .then(json => {
         setArticles(json);
         // setLoading(false); 
