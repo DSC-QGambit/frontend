@@ -12,13 +12,13 @@ const Navbar = () => {
    }, [])
 
    const links = [
-      { id: 1, Name: 'Home', to: '/#home' },
+      { id: 1, Name: 'Home', to: '/' },
       { id: 2, Name: 'Browse', to: '/list' },
       // { id: 3, Name: 'Log In', to: 'https://google.com' },
    ];
 
    const links_mob = [
-      { id: 1, Name: 'Home', to: '/#home' },
+      { id: 1, Name: 'Home', to: '/' },
       { id: 2, Name: 'Browse', to: '/list' },
       // { id: 3, Name: 'Log In', to: 'https://google.com' },
    ];
@@ -48,7 +48,7 @@ const Navbar = () => {
             </nav>
          </div>
 
-         <ul className="sidenav" id='mobile-nav' style={{ "backgroundColor": "white", 'paddingTop':'20vh' }}>
+         <ul className="sidenav" id='mobile-nav' style={{ "backgroundColor": "#5f8ddc", 'paddingTop':'20vh' }}>
             {links_mob.map(link => (
                <li key={link.id} >
                   <HLink className='white-text' style={{'margin':'5vh 0', 'textAlign':'center'}}

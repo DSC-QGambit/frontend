@@ -7,7 +7,7 @@ import List from './Page2/list.js';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-    <Router basename="/">
+    <Router basename="">
       <div>
         <Switch>
           <Route exact path="/" component={FullPage} />

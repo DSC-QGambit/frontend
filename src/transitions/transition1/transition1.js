@@ -18,22 +18,23 @@ export default () => {
 
           <div className="two_buttons">
               <div className="login">
-                  <a href="https://google.com">
+              <HLink to='/list' >yoo
                       <button className="button button1 button_anim1">
                         Browse News
                       </button>
-                  </a>
-                  <a href="https://google.com" className="have_account">
+                  </HLink>
+                  {/* <a href="https://google.com" className="have_account"> */}
+                  <span className="have_account">
                     We'll make it worth your while.
-                  </a>
+                  </span>
               </div>
 
               <div className="learn_more">
-                  <button className="button button2 button_anim2">
                       <HLink className='white-text' style={{'margin':'5vh 0', 'textAlign':'center'}} to="/#moreinfo" >
+                      <button className="button button2 button_anim2">
                           Learn More
+                          </button>
                       </HLink>
-                  </button>
               </div>
           </div>
           <img src={img} alt="" className="pic"/>

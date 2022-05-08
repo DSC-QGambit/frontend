@@ -15,7 +15,7 @@
 }
 
 .newsposts{
-    max-width: 25vw;
+    max-width: 17vw;
     margin-left: 5vw;
     margin-right: 2vw;
     margin-top: 0;
@@ -24,9 +24,14 @@
     border-radius: 2vw;
 }
 
+.poost_title{
+    
+}
+
 .post_image{
-    background-size: 100%;
+    background-size: contain;
     width: max-content;
+    max-height: 20vh;
 }
 
 .post_hr{
