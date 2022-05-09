@@ -37,12 +37,12 @@
 }
 
 .two_buttons{
-    display:grid;
-    grid-template-columns: 1fr;
+    display:flex;
+    
 }
 
 .button{
-    margin-top:2rem;
+    /* margin-top:2rem; */
     color:white;
     padding:10px 20px;
     margin-right:10vw;
@@ -54,7 +54,7 @@
     border:none;
 }
 
-.login{
+/* .login{
     grid-column:1;
     grid-row:1;
     display:grid;
@@ -63,7 +63,7 @@
 .learn_more{
     grid-column:2;
     grid-row:1;
-}
+} */
 
 .have_account{
     color:rgba(255, 255, 255, 0.8);
@@ -78,6 +78,7 @@
     color:#1e021e;
     background-color:white;
     margin-bottom:10px;
+    margin-top: -13px;
 }
 
 .button2{
@@ -147,7 +148,7 @@
 @media screen and (max-width: 750px){
     .pic{
         left:0vw;
-        top:60vh;
+        top:90vh;
     }
 
     .usecase{
@@ -208,6 +209,8 @@
         background-color:white;
         margin-left:5vw;
         padding-left:0;
+        margin-top: 0vh;
+        margin-bottom: 1vh;
     }
 
     .button2{

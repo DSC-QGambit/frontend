@@ -68,17 +68,14 @@ const AllTimeFavorites = () => {
     if(data.title === post_title)
       {
         return(
-          <div key={id}>
+          <div key={id} className="individual_post">
             {postArticle(data)}
             <br/>
             <h3 className="individual_post_title">{data.title}</h3> 
-            
             {/* <h3 className="post_date">{data.date}</h3> */}
-
             <hr className = "individual_post_hr"/>
-            
             <img src={data.top_image} alt=""/>
-            <h6 className="post_desc">{data.text.substring(0,250)}...</h6>
+            <h6 className="individual_post_desc">{data.text.substring(0,1000)}...</h6>
           </div>
         )
       }
@@ -86,50 +83,44 @@ const AllTimeFavorites = () => {
   });
 
   return (
-    <div className="">    
-     <div className="list_page">
+    <div className="list_container">    
+      <div className="list_page">
+        
+        {post_title==="" && !show_post &&
+          <div className="allposts">
 
- 
-    {post_title==="" && !show_post &&
-    <div>
+            <Navbar />
+            
+            <div className="main_container">
 
-      <Navbar />
-      
-      <div className="main_container">
+              <h3 className="section_name">Trending Topics</h3>  
 
-        <h3 className="section_name">Trending Topics</h3> 
+              <div className="products">
+              {posts}
 
-        <div className="products">
-        {posts}
+              </div>
+              
+            </div>
+              
+          </div>
+        }
 
+        {post_title!=="" && !show_post ?
+        <div className="individual">
+
+          <Navbar />
+          <div className="main_container">
+            {post}
+            <h5 className="back_to_list" onClick={() => {setPost_title("")}}>
+              Back To List
+            </h5>
+
+          </div>
+        
         </div>
-        
-      </div>
-        
-    </div>
-    }
-
-    {post_title!=="" && !show_post ?
-    <div>
-
-      <Navbar />
-
-      <div className="main_container">
-        
-        <h5 className="blog_text_red back" onClick={() => {setPost_title("")}}>Back To List</h5>
-
-        {post}
-
-        <h5 className="back_to_list" onClick={() => {setPost_title("")}}>
-          Back To List
-        </h5>
+        : null }
 
       </div>
-    
-    </div>
-    : null }
-
-    </div>
     </div>
   )
 }
