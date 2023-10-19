@@ -8,18 +8,20 @@
 .section_name{
     margin: 5vw;
     margin-bottom: 3vh;
-    font-size:3rem;
+    margin-left: 3vw;
+    font-size: 40px;
     font-weight:500;
     letter-spacing: 2px;
-    line-height: 3.5rem;
+    line-height: 2rem;
     padding-bottom: 4vh;
+    color: white;
+    font-family: granville;
 }
 
 .newsposts{
-    height: 700px;
-    border: .5px solid;
-    padding: 2%;
-    background-color: #f8f8ff;
+    /* height: 700px; */
+    /* border: .5px solid; */
+    /* background-color: green; */
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     max-width: 28vw;
@@ -28,7 +30,27 @@
     margin-top: 0;
     margin-bottom: 5vh;
     float: left;
-    border-radius: 1vw;
+}
+
+/* .post_text{
+    padding: 2%;
+    margin-left: 3vw;
+    margin-right: 2vw;
+} */
+
+.post_title{
+    /* padding: 2%; */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 5px;
+    padding-bottom: 0;
+    border-top-left-radius: 5px;
+    font-size: 22px;
+    font-family: granville;
 }
 
 .newsposts:hover{
@@ -36,11 +58,33 @@
     cursor: pointer;
 }
 
-.post_image{
+/* .post_image{
     background-size: contain;
     width: max-content;
     max-height: 20vh;
+} */
+
+.post_image{
+    background-size: cover;
+    width: 100%;
 }
+
+.post-content {
+    position: relative;
+  }
+  
+.post_date {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 5px;
+    border-top-left-radius: 5px;
+    font-size: 15px;
+    font-family: granville;
+  }
 
 .post_hr{
     border-color: black;
@@ -55,12 +99,15 @@
 }
 
 .list_page{
-    color:black;
+    color:white;
 }
 
-.allposts{
-    background-color: #5f8ddc;
-}
+/* .allposts{
+    background-color: rgb(19, 19, 10);
+    height:100vh;
+    width:100vw;
+    position: static;
+} */
 
 .post_card{
     margin: 1px solid;
@@ -70,7 +117,6 @@
 }
 .individual{
     height: 100vh;
-    background-color: #5f8ddc;
 }
 .individual_post{
     padding: 4%;
@@ -137,19 +183,12 @@
     line-height:25px;
 }
 
-.post_title{
-    font-size: 28px;
-}
 .individual_post_title, .post_title{
     margin-bottom: 1.5vh;
 }
 
 .individual_post_hr, .post_hr{
     margin-bottom: 1.5vh
-}
-
-.main_container{
-    background-color: #5f8ddc;
 }
 
 @media screen and (max-width: 750px){
