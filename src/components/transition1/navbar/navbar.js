@@ -29,16 +29,16 @@ const Navbar = () => {
             <nav className="nav-wrapper">
                <div className="container">
                   <a href="/" data-target="mobile-nav" className="sidenav-trigger">
-                     <i className="material-icons" style={{ color: "#5f8ddc" }}>menu</i>
+                     <i className="material-icons" style={{ color: "white" }}>menu</i>
                   </a>
                   {/* <img src={img} alt="" className="logo"/> */}
-                  <ul className="right hide-on-med-and-down menu_nav" >
+                  <ul className="right hide-on-med-and-down menu_nav">
                      {links.map(link => (
                         <li key={link.id}>
                            <HLink style={{'fontSize':'1.2rem'}} to={link.to} >{link.Name}</HLink>
                         </li>
                      ))}
-                     <li >
+                     <li>
                         {/* <button className="login_button">                        
                            <a style={{'color':'#5f8ddc'}} href={"https://google.com"} >{"Login"}</a>
                         </button> */}
@@ -48,7 +48,7 @@ const Navbar = () => {
             </nav>
          </div>
 
-         <ul className="sidenav" id='mobile-nav' style={{ "backgroundColor": "#5f8ddc", 'paddingTop':'20vh' }}>
+         <ul className="sidenav" id='mobile-nav'>
             {links_mob.map(link => (
                <li key={link.id} >
                   <HLink className='white-text' style={{'margin':'5vh 0', 'textAlign':'center'}}

@@ -1,0 +1,87 @@
+/* Container for the entire post */
+.post-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: -3vw;
+  }
+  
+  /* Title */
+  .individual_post_title {
+    white-space: nowrap; /* Ensure the title stays in one line */
+    font-size: 2vw;
+  }
+  
+  /* Horizontal rule */
+  .individual_post_hr {
+    width: 100%; /* Horizontal rule stretches to full width */
+    margin: 10px 0; /* Add some margin for spacing */
+  }
+  
+  /* Container for image and text */
+  .image-and-text-container {
+    display: flex;
+    /* padding: 0 20px 0 20px; Add margin for spacing */
+    font-size: 2vw;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin-top: 20px;
+    float: left;
+    background-color: #fffffff6;
+    color: #030915;
+    border-radius: 10px;
+  }
+  
+  /* Image */
+  .image-container {
+    width: 50%; 
+    background-size: cover;
+  }
+
+  .article_image {
+    /* height: 100%; Ensure the image doesn't exceed its container */
+    border-radius: 10px 0 0 10px;
+    background-size: cover;
+    height:100%;
+  }
+  
+  /* Text */
+  .text-container {
+    width: 50%; /* Text takes 50% of the width */
+    padding: 0 20px; /* Add padding for spacing */
+  }
+
+  .sentiment-container {
+    display: flex;
+  }
+  
+  /* Box or card for All Sides data */
+  .all-sides-container {
+    font-size: 1vw;
+    width: 50%; /* Box takes 50% of the width */
+    padding: 0 20px 0 20px; /* Add margin for spacing */
+    font-size: 2vw;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    /* margin-right: 2vw; */
+    margin-top: 20px;
+    margin-bottom: 5vh;
+    float: left;
+    background-color: rgba(255, 255, 255, 0.045);
+    border-radius: 10px;
+  }
+  
+  /* Box or card for Reddit data */
+  .reddit-container {
+    width: 50%; /* Box takes 50% of the width */
+    margin-top: 20px; /* Add margin for spacing */
+    padding: 0 20px 0 20px; /* Add margin for spacing */
+    font-size: 2vw;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin-left: 2vw;
+    margin-bottom: 5vh;
+    float: left;
+    background-color: rgba(255, 255, 255, 0.045);
+    border-radius: 10px;
+  }
+  

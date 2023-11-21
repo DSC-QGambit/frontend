@@ -8,7 +8,7 @@ class FullPage extends React.Component {
     return (
       <div>
         <Transition1 />           
-        <Transition2 />
+        {/* <Transition2 /> */}
       </div>
     );
   }

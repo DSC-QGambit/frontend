@@ -1,21 +1,17 @@
 #about h1 {
-    font-family: 'Dosis',sans-serif;
     padding-bottom:4rem;
-    font-weight: 320;
     font-size:2rem;
 }
 
 .section_name{
-    margin: 5vw;
+    margin-top: 3.5vw;
     margin-bottom: 3vh;
     margin-left: 3vw;
     font-size: 40px;
-    font-weight:500;
     letter-spacing: 2px;
     line-height: 2rem;
     padding-bottom: 4vh;
     color: white;
-    font-family: granville;
 }
 
 .newsposts{
@@ -50,7 +46,6 @@
     padding-bottom: 0;
     border-top-left-radius: 5px;
     font-size: 22px;
-    font-family: granville;
 }
 
 .newsposts:hover{
@@ -83,7 +78,6 @@
     padding: 5px;
     border-top-left-radius: 5px;
     font-size: 15px;
-    font-family: granville;
   }
 
 .post_hr{
@@ -148,34 +142,27 @@
 #intro h1 {
     margin:3rem auto;
     width:80%;
-    font-weight: 320;
 }
 
 #intro p {
     margin:5rem auto;
-    font-family:'Dosis',sans-serif;
     font-size:1.1rem;
     width:75%;
-    font-weight: 300;
     text-align: left;
 }
 
 #about h2 {
     margin-top:2rem;
-    font-family:'Dosis',sans-serif;
     font-size:1.7rem;
-    font-weight: 400;
 }
 
 #about h3 {
     margin-top:1rem;
     font-size:1rem;
-    font-weight:300;
 }
 
 #about h4 {
     font-size:0.9rem;
-    font-weight:50;
     width:80%;
     margin: 1rem auto;
     margin-bottom:6rem;
@@ -202,7 +189,6 @@
 
     #about h1 {
         margin-bottom:4rem;
-        font-weight: 200;
         font-size:2rem;
     }
     
@@ -217,20 +203,16 @@
     
     #about h2 {
         margin-top:2rem;
-        font-family:'Dosis',sans-serif;
         font-size:1.4rem;
-        font-weight: 200;
     }
     
     #about h3 {
         margin-top:-1rem;
         font-size:1rem;
-        font-weight:100;
     }
 
     #about h4 {
         font-size:0.9rem;
-        font-weight:100;
         width:80%;
         margin: 1rem auto;
         margin-bottom:5rem;

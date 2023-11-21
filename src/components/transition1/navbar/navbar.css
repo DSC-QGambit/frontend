@@ -9,7 +9,7 @@
 }
 
 .login_button{
-  color:white;
+  /* color:white; */
   padding:10px 20px;
   font-size:1.3rem;
   position:relative;
@@ -19,9 +19,8 @@
 }
 
 .nav-wrapper{
-  background-color: rgb(0, 0, 0, 0.05);
-  color: white;
-  font-family: granville;
+  font-family: 'Lora', serif;
+  background-color: #15151c;
 }
 
 @media screen and (max-width: 750px){

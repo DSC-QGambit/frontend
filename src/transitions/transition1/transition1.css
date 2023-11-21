@@ -1,14 +1,15 @@
 .transition1{
-    background-color:#5f8ddc;
+    background-color:white;
     background-size: cover;
     background-repeat: no-repeat;
-    color:white;
+    color:#15151c;
+    overflow-y: hidden
 }
 
 .pic{
     position: absolute;
     left:50vw;
-    top:0vh;
+    top:-10vh;
     width: 40vw;
 }
 
@@ -16,11 +17,11 @@
     margin:20vh;
     margin-bottom:0vh;
     margin-left:5vw;
-    margin-top:15vh;
+    margin-top:20vh;
     position:relative;
     z-index:10;
     width:50vw;
-    height:90vh;
+    height:70vh;
 }
 
 .content h1{
@@ -43,7 +44,7 @@
 
 .button{
     /* margin-top:2rem; */
-    color:white;
+    color:#15151c;
     padding:10px 20px;
     margin-right:10vw;
     width:15vw;
@@ -66,7 +67,7 @@
 } */
 
 .have_account{
-    color:rgba(255, 255, 255, 0.8);
+    color:#15151c;
     font-size:0.8rem;
     grid-row:2;
     grid-column:1;
@@ -75,21 +76,21 @@
 }
 
 .button1{
-    color:#1e021e;
-    background-color:white;
+    color:white;
+    background-color:#15151c;
     margin-bottom:10px;
     margin-top: -13px;
 }
 
 .button2{
-    border:2px solid white;
+    border:2px solid #15151c;
     background-color:transparent;
 }
 
 .button_anim1{
     overflow: hidden;
     transition: color .5s;    
-    background-color:rgba(255, 255, 255,0.8);
+    background-color:#15151c;
 }
 
 .button_anim1::before{
@@ -99,7 +100,7 @@
     left:-10%;
     width: 0%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 1);
+    background-color: white;
     z-index: -1;
     transform: skewX(25deg);
     transition: width .5s;
@@ -121,7 +122,7 @@
     left:-10%;
     width: 0%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #15151c;
     z-index: -1;
     transform: skewX(25deg);
     transition: width .5s;
@@ -156,7 +157,7 @@
         right:30vw;
         width:40vw;
         top:-15vh;
-        color:white;
+        color:#15151c;
         padding:5px 10px;
         border-radius:5px;
         font-size:1.3rem;
