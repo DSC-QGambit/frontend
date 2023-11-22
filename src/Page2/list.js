@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import "./list.css";
 import "./article.css";
 import Navbar from "../components/transition1/navbar/navbar.js";
+import RedditCarousel from "./redditCarousel";
 
 const AllTimeFavorites = () => {
   const [articles, setArticles] = useState([]);
   const [articlesFetched, setArticlesFetched] = useState(false);
   const [relatedArticles, setRelatedArticles] = useState([]);
   const [post_title, setPost_title] = useState("");
+  const [post_desc, setPost_desc] = useState("");
   const [all_sides, setAll_sides] = useState({});
   const [reddit_opinion, setReddit_opinion] = useState({});
   const [sentimentsFetched, setSentimentsFetched] = useState(false);
@@ -23,8 +25,13 @@ const AllTimeFavorites = () => {
       });
   }, []);
 
-  const postArticle = (data) => {
-    fetch('/post-selected-news-article/', {
+  useEffect(() => {
+    if(Object.keys(reddit_opinion).length !== 0)
+      setSentimentsFetched(true)
+  }, [reddit_opinion]);
+
+  const getRelatedArticles = (data) => {
+    fetch('/get-related-articles/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
@@ -32,8 +39,21 @@ const AllTimeFavorites = () => {
       .then(res => res.json())
       .then(res => console.log(res));
 
+    getArticleSummary(data.text);
     getRedditPublicOpinion(post_title);
-    setSentimentsFetched(true);
+    // while(Object.keys(reddit_opinion).length === 0);
+    // setSentimentsFetched(true);
+  };
+
+  const getArticleSummary = (data) => {
+    fetch('/get-article-summary/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+      .then(res => res.json())
+      // .then(data => console.log(data))
+      .then(data => setPost_desc(data[0]['summary_text']))
   };
 
   const getRedditPublicOpinion = (data) => {
@@ -75,12 +95,14 @@ const AllTimeFavorites = () => {
 
   useEffect(() => {
     if (post_title !== "") {
-      postArticle(articles.find(data => data.title === post_title));
+      getRelatedArticles(articles.find(data => data.title === post_title));
     }
   }, [post_title]);
 
   const handleClosePost = () => {
     setPost_title("");
+    setPost_desc("");
+    setReddit_opinion({})
     setSentimentsFetched(false);
   };
 
@@ -93,9 +115,21 @@ const AllTimeFavorites = () => {
     ));
   };
 
+
+  function caps(str) {
+    return str.replace(/(?<=(?:^|[.?!])\W*)[a-z]/g, i => i.toUpperCase())
+  }
+
+  const Loader = React.memo(({height}) => {
+    return <div className="loader-container" style={{height:height}}>
+    {/* <div className="loading-text">Please wait...</div> */}
+    <div className="loader"></div>
+  </div>;
+  });
+
   const posts = articles.map(function (data, id) {
     return (
-      <div key={id} className="newsposts" onClick={() => { setPost_title(data.title) }}>
+      <div key={id} className="newsposts" onClick={() => { setPost_title(data.title) && setPost_desc(data.desc) }}>
         <div className="post-content">
           <img src={data.top_image} className="post_image" alt="" />
           <h3 className="post_date">{data.published.substring(0, 10)}</h3>
@@ -122,29 +156,36 @@ const AllTimeFavorites = () => {
                 <img className="article_image" src={data.top_image} alt="" />
               </div>
               <div className="text-container">
-                <p className="individual_post_desc">{renderTextWithLineBreaks(data.text)}</p>
+                {post_desc!=="" ? <p className="individual_post_desc">{caps(post_desc)}</p> : <p>Please wait...</p> }
+                <p className="individual_post_desc">View the full story <a href={data.link}>here</a>.</p>
               </div>
             </div>
 
             <div className="sentiment-container">
-              {all_sides ? (
+              {sentimentsFetched ? (
                 <div className="all-sides-container">
                   <p><b>Data about news source ({data.source}) from AllSides:</b></p>
                   <p>Bias: {all_sides.bias ? all_sides.bias : "Unavailable"}</p>
                   <p>Confidence: {all_sides.confidence ? all_sides.confidence : "Unavailable"}</p>
                   <p>{all_sides.agreement ? all_sides.agreement : "Unavailable"} raters agree with these scores while {all_sides.disagreement ? all_sides.disagreement : "Unavailable"} disagree.</p>
                 </div>
-              ) : null}
-
-              {reddit_opinion ? (
-                <div className="reddit-container">
-                  <p><b>Analysis on the reddit thread on '{reddit_opinion['source']}' suggests the following sentiments:</b></p>
-                  <p>Positive: {reddit_opinion['pos'] ? (reddit_opinion['pos'] * 100).toFixed(2) + '%' : "Unavailable"}</p>
-                  <p>Neutral: {reddit_opinion['neu'] ? (reddit_opinion['neu'] * 100).toFixed(2) + '%' : "Unavailable"}</p>
-                  <p>Negative: {reddit_opinion['neg'] ? (reddit_opinion['neg'] * 100).toFixed(2) + '%' : "Unavailable"}</p>
+              ) : (
+                <div className="all-sides-container">
+                  <p>[Fetching AllSides Data...]</p>
+                <Loader height='20vh'/>
                 </div>
-              ) : null}
-            </div>
+              )}
+
+              {/* <div className="reddit-carousel-container"> */}
+              {sentimentsFetched ? (
+                  <RedditCarousel redditOpinions={reddit_opinion} />
+                ) : (
+                  <div className="reddit-carousel-container">
+                  <p>[Fetching Reddit Data...]</p>
+                    <Loader height='20vh'/>
+                  </div>
+                )}
+              </div>
           </div>
         </div>
       );
@@ -155,7 +196,7 @@ const AllTimeFavorites = () => {
   const AllPosts = React.memo(() => {
     return (
       <div className="allposts">
-        <h3 className="section_name">Trending Topics</h3>
+        <h3 className="section_name">Latest News</h3>
         {posts}
       </div>
     );
@@ -171,23 +212,17 @@ const AllTimeFavorites = () => {
     );
   });
 
-  const Loader = React.memo(() => {
-    return <div className="loader"></div>;
-  });
-
   return (
     <div className="list_container">
       <div className="list_page">
         <Navbar />
-        {console.log(sentimentsFetched)}
-        {console.log(post_title)}
 
         {post_title === "" && articlesFetched ? (
         <AllPosts />
-      ) : post_title !== "" && sentimentsFetched ? (
+      ) : post_title !== "" ? (
         <IndividualPost />
       ) : (
-        <Loader />
+        <Loader height='90vh'/>
       )}
 
       </div>
@@ -196,4 +231,3 @@ const AllTimeFavorites = () => {
 };
 
 export default AllTimeFavorites;
-
