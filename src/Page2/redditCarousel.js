@@ -21,17 +21,17 @@ const RedditCarousel = ({ redditOpinions }) => {
           <div key={index}>
             {opinion['pos']!==0.0 || opinion['neg']!==0.0 || opinion['neu']!==0.0 ?
             <div className="reddit-container">
-            <p>Match #{index+1} - Analysis on the reddit thread on <b>'<a href={opinion['url']}>{opinion['source']}</a>'</b> suggests the following sentiments:</p>
-            <p>Positive: {(opinion['pos'] * 100).toFixed(2) + '%'}
-            &emsp; &emsp; 
-            Negative: {(opinion['neg'] * 100).toFixed(2) + '%'}</p>
-            <p>Summary of clustered takes:</p>
+            <p>[Reddit Posts] Match #{index+1} - <a href={opinion['url']}>{opinion['source']}</a></p>
+            <button>Positive Sentiments: {(opinion['pos'] * 100).toFixed(2) + '%'}</button>
+            <button>Neutral Sentiments: {((1 - opinion['pos'] - opinion['neg']) * 100).toFixed(2) + '%'}</button>
+            <button>Negative Sentiments: {(opinion['neg'] * 100).toFixed(2) + '%'}</button>
+            <h3>Summary of Clustered Opinions</h3>
             {opinion['summary'].map((summaryItem, index) => (
                 <p key={index}>{index+1}: {summaryItem}</p>
             ))}
             </div>
             : <div className="reddit-container">
-                <p>Match #{index+1} - Analysis could not be done because there were no comments.</p>
+                <p>[Reddit Posts] Match #{index+1} - Analysis could not be done because there were no comments under <a href={opinion['url']}>{opinion['source']}</a> reddit post.</p>
             </div>
             }
           </div>

@@ -39,11 +39,9 @@
 
 .two_buttons{
     display:flex;
-    
 }
 
 .button{
-    /* margin-top:2rem; */
     color:#15151c;
     padding:10px 20px;
     margin-right:10vw;

@@ -15,9 +15,6 @@
 }
 
 .newsposts{
-    /* height: 700px; */
-    /* border: .5px solid; */
-    /* background-color: green; */
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     max-width: 28vw;
@@ -28,14 +25,7 @@
     float: left;
 }
 
-/* .post_text{
-    padding: 2%;
-    margin-left: 3vw;
-    margin-right: 2vw;
-} */
-
 .post_title{
-    /* padding: 2%; */
     position: absolute;
     bottom: 0;
     left: 0;
@@ -52,12 +42,6 @@
     box-shadow: 0 16px 25px 0 rgba(0,0,0,0.2);
     cursor: pointer;
 }
-
-/* .post_image{
-    background-size: contain;
-    width: max-content;
-    max-height: 20vh;
-} */
 
 .post_image{
     background-size: cover;

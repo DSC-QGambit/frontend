@@ -14,7 +14,18 @@
   /* Horizontal rule */
   .individual_post_hr {
     width: 100%; /* Horizontal rule stretches to full width */
-    margin: 10px 0; /* Add some margin for spacing */
+    margin: 0px 0; /* Add some margin for spacing */
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Lora&family=Playfair+Display&display=swap');
+
+  .post-container h3 {
+    font-size: 1.5vw;
+    /* font-family: 'Lora', serif; */
+    /* font-family: 'Playfair Display', serif; */
+    font-family: 'DM Serif Display', serif;
+    border-bottom: 1px solid; 
+    font-style: normal;
   }
 
 .individual_post_desc {
@@ -22,6 +33,24 @@
     margin: 10px 0; /* Add some margin for spacing */
     font-size: 1.2vw;
     }
+
+/* .two_buttons{
+    display:flex;
+} */
+
+button {
+    background-color: #15151c;
+    color:white;
+    padding:10px 20px;
+    margin-right:5%;
+    width:28%;
+    border-radius:5px;
+    font-size:1vw;
+    font-style: italic;
+    position:relative;
+    text-decoration: none;
+    border:none;
+}
   
   /* Container for image and text */
   .image-and-text-container {
@@ -74,8 +103,9 @@
     border-radius: 10px;
   }
 
-  .all-sides-container p {
-    font-size: 1.2vw;
+  .all-sides-container p, .all-sides-container ul {
+    font-size: 1vw;
+    font-style: italic;
   }
   
   /* Box or card for Reddit data */
