@@ -188,7 +188,6 @@ const AllTimeFavorites = () => {
                 </div>
               )}
 
-              {/* <div className="reddit-carousel-container"> */}
               {sentimentsFetched ? (
                   <RedditCarousel redditOpinions={reddit_opinion} />
                 ) : (
