@@ -10,9 +10,8 @@ const AllTimeFavorites = () => {
   const [relatedArticles, setRelatedArticles] = useState([]);
   const [post_title, setPost_title] = useState("");
   const [post_desc, setPost_desc] = useState("");
-  const [all_sides, setAll_sides] = useState({});
+  const [allSides, setAllSides] = useState({});
   const [reddit_opinion, setReddit_opinion] = useState({});
-  const [sentimentsFetched, setSentimentsFetched] = useState(false);
   const [relevant, setRelevant] = useState(false);
 
   useEffect(() => {
@@ -24,11 +23,6 @@ const AllTimeFavorites = () => {
         setArticlesFetched(true);
       });
   }, []);
-
-  useEffect(() => {
-    if(Object.keys(reddit_opinion).length !== 0)
-      setSentimentsFetched(true)
-  }, [reddit_opinion]);
 
   useEffect(() => {
     if (post_title !== "") {
@@ -75,41 +69,103 @@ const AllTimeFavorites = () => {
     // while(Object.keys(reddit_opinion).length === 0);
   };
 
+  // const getMediaBiasStats = async () => {
+  //   try {
+  //     const response = await fetch('https://political-bias-database.p.rapidapi.com/ASdata', {
+  //       method: 'GET',
+  //       headers: {
+  //         'X-RapidAPI-Key': 'a316563259msh808280fd09a9419p1e1e98jsnf72eb1d4263b',
+  //         'X-RapidAPI-Host': 'political-bias-database.p.rapidapi.com'
+  //       },
+  //     });
+
+  //     if (!response.ok) {
+  //       setAll_sides({'bias': 'Unavailable', 'confidence': 'Unavailable', 'agreement': 'Unavailable', 'disagreement': 'Unavailable'});
+  //       throw new Error(`HTTP error! Status: ${response.status}`);
+  //     }
+
+  //     const responseJson = await response.json();
+  //     const article = articles.find(article => article.title === post_title);
+  //     const pattern = new RegExp("^" + article.source + ".*$", "i");
+
+  //     if (responseJson !== undefined) {
+  //       const all_sides_data = responseJson.find(entry => pattern.test(entry.name));
+  //       setAll_sides(all_sides_data);
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+
   const getMediaBiasStats = async () => {
     try {
+      const localStorageKey = 'political_bias_data';
+      const localStorageData = localStorage.getItem(localStorageKey);
+  
+      if (localStorageData) {
+        console.log("found")
+        const allSidesJson = JSON.parse(localStorageData);
+        const article = articles.find((article) => article.title === post_title);
+        const pattern = new RegExp(`^${article.source}.*$`, 'i');
+        const allSidesData = allSidesJson.find((entry) => pattern.test(entry.name));
+        if (allSidesData !== undefined) {
+          console.log(allSidesData)
+          allSidesData.timestamp = new Date().toISOString();
+          setAllSides(allSidesData);
+        } else {
+          console.error('Matching entry not found.');
+        }
+        return;
+      }
+  
+      // Data not found in localStorage, fetch from the API
       const response = await fetch('https://political-bias-database.p.rapidapi.com/ASdata', {
         method: 'GET',
         headers: {
-          'X-RapidAPI-Key': 'a316563259msh808280fd09a9419p1e1e98jsnf72eb1d4263b',
-          'X-RapidAPI-Host': 'political-bias-database.p.rapidapi.com'
+          'X-RapidAPI-Key': '9c542f7a75msh570705e86f037cfp1ec215jsndba0823c6d94',
+          'X-RapidAPI-Host': 'political-bias-database.p.rapidapi.com',
         },
       });
 
+      console.log("not found")
+  
       if (!response.ok) {
-        setAll_sides({'bias': 'Unavailable', 'confidence': 'Unavailable', 'agreement': 'Unavailable', 'disagreement': 'Unavailable'});
+        setAllSides({
+          bias: 'Unavailable',
+          confidence: 'Unavailable',
+          agreement: 'Unavailable',
+          disagreement: 'Unavailable',
+        });
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-
+  
       const responseJson = await response.json();
-      const article = articles.find(article => article.title === post_title);
-      const pattern = new RegExp("^" + article.source + ".*$", "i");
-
+      const article = articles.find((article) => article.title === post_title);
+      const pattern = new RegExp(`^${article.source}.*$`, 'i');
+  
       if (responseJson !== undefined) {
-        const all_sides_data = responseJson.find(entry => pattern.test(entry.name));
-        setAll_sides(all_sides_data);
+        console.log(responseJson)
+        const allSidesData = responseJson.find((entry) => pattern.test(entry.name));
+        if (allSidesData !== undefined) {
+          console.log(allSidesData)
+          allSidesData.timestamp = new Date().toISOString();
+          localStorage.setItem(localStorageKey, JSON.stringify(responseJson));
+          setAllSides(allSidesData);
+        } else {
+          console.error('Matching entry not found.');
+        }
       }
     } catch (error) {
       console.error(error);
     }
-  };
+  };  
 
   const handleClosePost = () => {
     setPost_title("");
     setPost_desc("");
     setReddit_opinion({})
-    setAll_sides({})
+    setAllSides({})
     setRelatedArticles([])
-    setSentimentsFetched(false);
   };
 
   // const renderTextWithLineBreaks = (text) => {
@@ -168,20 +224,18 @@ const AllTimeFavorites = () => {
             </div>
 
             <div className="sentiment-container">
-              {Object.keys(all_sides).length !== 0 ? (
+              {Object.keys(allSides).length !== 0 ? (
                 <div className="all-sides-container">
                   <p><b>Data about news source ({data.source}) from AllSides:</b></p>
-                  <p>Bias: {all_sides.bias ? all_sides.bias : "Unavailable"}</p>
-                  <p>Confidence: {all_sides.confidence ? all_sides.confidence : "Unavailable"}</p>
-                  <p>{all_sides.agreement ? all_sides.agreement : "Unavailable"} raters agree with these scores while {all_sides.disagreement ? all_sides.disagreement : "Unavailable"} disagree.</p>
+                  <p>Bias: {allSides.bias ? allSides.bias : "Unavailable"}</p>
+                  <p>Confidence: {allSides.confidence ? allSides.confidence : "Unavailable"}</p>
+                  <p>{allSides.agreement ? allSides.agreement : "Unavailable"} raters agree with these scores while {allSides.disagreement ? allSides.disagreement : "Unavailable"} disagree.</p>
                   {relatedArticles.length!==0 ? 
-                  <p>Related articles:
-                  <ul>
+                  <ul>Related articles:
                   {relatedArticles.map((summaryItem, index) => (
                       <li key={index}>{index+1}. <a href={summaryItem['url']}>{summaryItem['title'].substring(0, 60)}{summaryItem['title'].length>50?"...":null}</a></li>
                   ))}
                   </ul>
-                  </p>
                    : null}
                 </div>
               ) : (
