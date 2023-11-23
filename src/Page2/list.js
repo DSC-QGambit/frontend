@@ -30,40 +30,50 @@ const AllTimeFavorites = () => {
       setSentimentsFetched(true)
   }, [reddit_opinion]);
 
-  const getRelatedArticles = (data) => {
-    fetch('/get-related-articles/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    })
-      .then(res => res.json())
-      .then(res => console.log(res));
+  useEffect(() => {
+    if (post_title !== "") {
+      getArticleData(articles.find(data => data.title === post_title));
+    }
+  }, [post_title]);
 
+  const getArticleData = (data) => {
     getArticleSummary(data.text);
     getRedditPublicOpinion(post_title);
-    // while(Object.keys(reddit_opinion).length === 0);
-    // setSentimentsFetched(true);
+    getRelatedArticles(data);
+    // getMediaBiasStats();
   };
 
   const getArticleSummary = (data) => {
-    fetch('/get-article-summary/', {
+    fetch('http://127.0.0.1:5000/get-article-summary/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     })
       .then(res => res.json())
-      // .then(data => console.log(data))
-      .then(data => setPost_desc(data[0]['summary_text']))
+      .then(data => setPost_desc(data))
   };
 
   const getRedditPublicOpinion = (data) => {
-    fetch('/get-public-opinion-from-reddit/', {
+    fetch('http://127.0.0.1:5000/get-public-opinion-from-reddit/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     })
       .then(res => res.json())
       .then(data => setReddit_opinion(data));
+  };
+
+  const getRelatedArticles = (data) => {
+    fetch('http://127.0.0.1:5000/get-related-articles/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+      .then(res => res.json())
+      .then(res => console.log(res));
+      // .then(data => setRelatedArticles(data))
+
+    // while(Object.keys(reddit_opinion).length === 0);
   };
 
   const getMediaBiasStats = async () => {
@@ -93,16 +103,12 @@ const AllTimeFavorites = () => {
     }
   };
 
-  useEffect(() => {
-    if (post_title !== "") {
-      getRelatedArticles(articles.find(data => data.title === post_title));
-    }
-  }, [post_title]);
-
   const handleClosePost = () => {
     setPost_title("");
     setPost_desc("");
     setReddit_opinion({})
+    setAll_sides({})
+    setRelatedArticles([])
     setSentimentsFetched(false);
   };
 
@@ -168,6 +174,12 @@ const AllTimeFavorites = () => {
                   <p>Bias: {all_sides.bias ? all_sides.bias : "Unavailable"}</p>
                   <p>Confidence: {all_sides.confidence ? all_sides.confidence : "Unavailable"}</p>
                   <p>{all_sides.agreement ? all_sides.agreement : "Unavailable"} raters agree with these scores while {all_sides.disagreement ? all_sides.disagreement : "Unavailable"} disagree.</p>
+                  <p>Related articles:</p>
+                  <ul>
+                  {relatedArticles.length!==0 ? relatedArticles.map((summaryItem, index) => (
+                      <li key={index}> {console.log(summaryItem)}<a href={summaryItem[1]}>{summaryItem[0]}</a></li>
+                  )) : null}
+                  </ul>
                 </div>
               ) : (
                 <div className="all-sides-container">
