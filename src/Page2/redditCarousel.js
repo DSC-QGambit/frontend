@@ -22,8 +22,9 @@ const RedditCarousel = ({ redditOpinions }) => {
             {opinion['pos']!==0.0 || opinion['neg']!==0.0 || opinion['neu']!==0.0 ?
             <div className="reddit-container">
             <p>Match #{index+1} - Analysis on the reddit thread on <b>'<a href={opinion['url']}>{opinion['source']}</a>'</b> suggests the following sentiments:</p>
-            <p>Positive: {(opinion['pos'] * 100).toFixed(2) + '%'}</p>
-            <p>Negative: {(opinion['neg'] * 100).toFixed(2) + '%'}</p>
+            <p>Positive: {(opinion['pos'] * 100).toFixed(2) + '%'}
+            &emsp &emsp 
+            Negative: {(opinion['neg'] * 100).toFixed(2) + '%'}</p>
             <p>Summary of clustered takes:</p>
             {opinion['summary'].map((summaryItem, index) => (
                 <p key={index}>{index+1}: {summaryItem}</p>

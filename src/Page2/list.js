@@ -40,7 +40,7 @@ const AllTimeFavorites = () => {
     getArticleSummary(data.text);
     getRedditPublicOpinion(post_title);
     getRelatedArticles(data);
-    // getMediaBiasStats();
+    getMediaBiasStats();
   };
 
   const getArticleSummary = (data) => {
@@ -70,8 +70,7 @@ const AllTimeFavorites = () => {
       body: JSON.stringify(data)
     })
       .then(res => res.json())
-      .then(res => console.log(res));
-      // .then(data => setRelatedArticles(data))
+      .then(data => setRelatedArticles(data))
 
     // while(Object.keys(reddit_opinion).length === 0);
   };
@@ -87,6 +86,7 @@ const AllTimeFavorites = () => {
       });
 
       if (!response.ok) {
+        setAll_sides({'bias': 'Unavailable', 'confidence': 'Unavailable', 'agreement': 'Unavailable', 'disagreement': 'Unavailable'});
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
 
@@ -112,14 +112,14 @@ const AllTimeFavorites = () => {
     setSentimentsFetched(false);
   };
 
-  const renderTextWithLineBreaks = (text) => {
-    return text.split('\n').map((line, index) => (
-      <React.Fragment key={index}>
-        {line}
-        <br />
-      </React.Fragment>
-    ));
-  };
+  // const renderTextWithLineBreaks = (text) => {
+  //   return text.split('\n').map((line, index) => (
+  //     <React.Fragment key={index}>
+  //       {line}
+  //       <br />
+  //     </React.Fragment>
+  //   ));
+  // };
 
 
   function caps(str) {
@@ -151,7 +151,7 @@ const AllTimeFavorites = () => {
         <div key={id} className="individual_post">
           <div className="post-container">
             <h3 className="individual_post_title">{data.title}
-              <i className="material-icons" style={{ float: 'right', marginTop: '1px' }} onClick={handleClosePost}>
+              <i className="material-icons" style={{ float: 'right'}} onClick={handleClosePost}>
                 close
               </i>
             </h3>
@@ -168,18 +168,21 @@ const AllTimeFavorites = () => {
             </div>
 
             <div className="sentiment-container">
-              {sentimentsFetched ? (
+              {Object.keys(all_sides).length !== 0 ? (
                 <div className="all-sides-container">
                   <p><b>Data about news source ({data.source}) from AllSides:</b></p>
                   <p>Bias: {all_sides.bias ? all_sides.bias : "Unavailable"}</p>
                   <p>Confidence: {all_sides.confidence ? all_sides.confidence : "Unavailable"}</p>
                   <p>{all_sides.agreement ? all_sides.agreement : "Unavailable"} raters agree with these scores while {all_sides.disagreement ? all_sides.disagreement : "Unavailable"} disagree.</p>
-                  <p>Related articles:</p>
+                  {relatedArticles.length!==0 ? 
+                  <p>Related articles:
                   <ul>
-                  {relatedArticles.length!==0 ? relatedArticles.map((summaryItem, index) => (
-                      <li key={index}> {console.log(summaryItem)}<a href={summaryItem[1]}>{summaryItem[0]}</a></li>
-                  )) : null}
+                  {relatedArticles.map((summaryItem, index) => (
+                      <li key={index}>{index+1}. <a href={summaryItem['url']}>{summaryItem['title'].substring(0, 60)}{summaryItem['title'].length>50?"...":null}</a></li>
+                  ))}
                   </ul>
+                  </p>
+                   : null}
                 </div>
               ) : (
                 <div className="all-sides-container">
@@ -188,7 +191,7 @@ const AllTimeFavorites = () => {
                 </div>
               )}
 
-              {sentimentsFetched ? (
+              {Object.keys(reddit_opinion).length !== 0 ? (
                   <RedditCarousel redditOpinions={reddit_opinion} />
                 ) : (
                   <div className="reddit-carousel-container">

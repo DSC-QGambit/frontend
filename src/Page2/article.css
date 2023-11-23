@@ -7,8 +7,8 @@
   
   /* Title */
   .individual_post_title {
-    white-space: nowrap; /* Ensure the title stays in one line */
-    font-size: 2vw;
+    white-space: wrap; /* Ensure the title stays in one line */
+    font-size: 1.8vw;
   }
   
   /* Horizontal rule */
