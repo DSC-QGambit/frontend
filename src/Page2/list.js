@@ -51,21 +51,21 @@ const AllTimeFavorites = () => {
       });
 
     // Data not found in localStorage or is older than 15 days, fetch from the API
-    fetch('https://news-article-extraction.streamlit.app/get-top-news-articles/', { method: 'GET' })
-    // fetch('http://127.0.0.1:5000/get-top-news-articles/', { method: 'GET' })
-      .then((response) => response.json())
-      .then((json) => {
-        setArticles(json);
-        setArticlesFetched(true);
-        localStorage.setItem(localStorageKey, JSON.stringify(json));
+  //   fetch('https://news-article-extraction.streamlit.app/get-top-news-articles/', { method: 'GET' })
+  //   // fetch('http://127.0.0.1:5000/get-top-news-articles/', { method: 'GET' })
+  //     .then((response) => response.json())
+  //     .then((json) => {
+  //       setArticles(json);
+  //       setArticlesFetched(true);
+  //       localStorage.setItem(localStorageKey, JSON.stringify(json));
 
-        const currentTimestamp = new Date().toISOString();
-        localStorage.setItem(localStorageTimestampKey, currentTimestamp);
-      })
-      .catch((error) => {
-        console.error('Error fetching top news articles:', error);
-      });
-  }, []);
+  //       const currentTimestamp = new Date().toISOString();
+  //       localStorage.setItem(localStorageTimestampKey, currentTimestamp);
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error fetching top news articles:', error);
+  //     });
+  // }, []);
 
 
   // useEffect(() => {
