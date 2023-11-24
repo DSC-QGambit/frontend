@@ -35,7 +35,7 @@ const AllTimeFavorites = () => {
       }
     }
 
-    fetch('https://news-article-extraction.streamlit.app:8888/get-top-news-articles/', { method: 'GET' })
+    fetch('http://news-article-extraction.streamlit.app/get-top-news-articles/', { method: 'GET' })
     // fetch('http://127.0.0.1:5000/get-top-news-articles/', { method: 'GET' })
       .then((response) => response.json())
       .then((json) => {
