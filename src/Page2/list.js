@@ -21,23 +21,23 @@ const AllTimeFavorites = () => {
     const localStorageData = localStorage.getItem(localStorageKey);
     const localStorageTimestamp = localStorage.getItem(localStorageTimestampKey);
 
-    if (localStorageData && localStorageTimestamp) {
-      const cachedArticles = JSON.parse(localStorageData);
-      const timestamp = new Date(localStorageTimestamp);
+    // if (localStorageData && localStorageTimestamp) {
+    //   const cachedArticles = JSON.parse(localStorageData);
+    //   const timestamp = new Date(localStorageTimestamp);
 
-      // Check if the data is less than half a day old
-      const ageInDays = Math.floor((new Date() - timestamp) / (1000 * 60 * 60 * 24));
-      if (ageInDays <= 0.5) {
-        console.log(ageInDays)
-        setArticles(cachedArticles);
-        setArticlesFetched(true);
-        return;
-      }
-    }
+    //   // Check if the data is less than half a day old
+    //   const ageInDays = Math.floor((new Date() - timestamp) / (1000 * 60 * 60 * 24));
+    //   if (ageInDays <= 0.5) {
+    //     console.log(ageInDays)
+    //     setArticles(cachedArticles);
+    //     setArticlesFetched(true);
+    //     return;
+    //   }
+    // }
 
     // Data not found in localStorage or is older than 15 days, fetch from the API
-    fetch('https://filter-bubble.onrender.com/get-top-news-articles/', { method: 'GET' })
-    // fetch('http://127.0.0.1:5000/get-top-news-articles/', { method: 'GET' })
+    // fetch('https://filter-bubble.onrender.com/get-top-news-articles/', { method: 'GET' })
+    fetch('http://127.0.0.1:5000/get-top-news-articles/', { method: 'GET' })
       .then((response) => response.json())
       .then((json) => {
         setArticles(json);
@@ -67,8 +67,8 @@ const AllTimeFavorites = () => {
   };
 
   const getArticleSummary = (data) => {
-    fetch('https://filter-bubble.onrender.com/get-article-summary/', {
-    // fetch('http://127.0.0.1:5000/get-article-summary/', {
+    // fetch('https://filter-bubble.onrender.com/get-article-summary/', {
+    fetch('http://127.0.0.1:5000/get-article-summary/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
@@ -78,8 +78,8 @@ const AllTimeFavorites = () => {
   };
 
   const getRedditPublicOpinion = (data) => {
-    fetch('https://filter-bubble.onrender.com/get-public-opinion-from-reddit/', {
-    // fetch('http://127.0.0.1:5000/get-public-opinion-from-reddit/', {
+    // fetch('https://filter-bubble.onrender.com/get-public-opinion-from-reddit/', {
+    fetch('http://127.0.0.1:5000/get-public-opinion-from-reddit/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
@@ -89,8 +89,8 @@ const AllTimeFavorites = () => {
   };
 
   const getRelatedArticles = (data) => {
-    fetch('https://filter-bubble.onrender.com/get-related-articles/', {
-    // fetch('http://127.0.0.1:5000/get-related-articles/', {
+    // fetch('https://filter-bubble.onrender.com/get-related-articles/', {
+    fetch('http://127.0.0.1:5000/get-related-articles/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
