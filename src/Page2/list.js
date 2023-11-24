@@ -65,7 +65,7 @@ const AllTimeFavorites = () => {
   //     .catch((error) => {
   //       console.error('Error fetching top news articles:', error);
   //     });
-  // }, []);
+  }, []);
 
 
   // useEffect(() => {
