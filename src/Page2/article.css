@@ -103,8 +103,13 @@ button {
     border-radius: 10px;
   }
 
-  .all-sides-container p, .all-sides-container ul {
+  /* .all-sides-container p, .all-sides-container ul {
     font-size: 1vw;
+    font-style: italic;
+  } */
+
+  .footnote-style {
+    font-size: 1vw !important;
     font-style: italic;
   }
   

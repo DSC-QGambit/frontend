@@ -29,9 +29,11 @@ const RedditCarousel = ({ redditOpinions }) => {
             {opinion['summary'].map((summaryItem, index) => (
                 <p key={index}>{index+1}: {summaryItem}</p>
             ))}
+            <p className="footnote-style">Note: If the listed posts don't appear relavant, then there have been no reddit threads on similar topics at <a href="https://www.reddit.com/r/news">r/news</a> or <a href="https://www.reddit.com/r/news">r/worldnews</a> in the past month.</p>
             </div>
             : <div className="reddit-container">
                 <p>[Reddit Posts] Match #{index+1} - Analysis could not be done because there were no comments under <a href={opinion['url']}>{opinion['source']}</a> reddit post.</p>
+                <p className="footnote-style">Note: If the listed posts don't appear relavant, then there have been no reddit threads on similar topics at <a href="https://www.reddit.com/r/news">r/news</a> or <a href="https://www.reddit.com/r/news">r/worldnews</a> in the past month.</p>
             </div>
             }
           </div>

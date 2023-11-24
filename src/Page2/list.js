@@ -281,7 +281,7 @@ const AllTimeFavorites = () => {
               </div>
               <div className="text-container">
                 <h3>Summary</h3>
-                {post_desc!=="" ? <p className="individual_post_desc">{caps(post_desc)}</p> : <p>Please wait...</p> }
+                {post_desc!=="" ? <p className="individual_post_desc">{caps(post_desc)}</p> : <p className="footnote-style">Please wait...</p> }
                 <p className="individual_post_desc">View the full story from {data.source} <a href={data.link}>here</a>.</p>
               </div>
             </div>
@@ -293,7 +293,7 @@ const AllTimeFavorites = () => {
                   <button>Bias: {allSides.bias ? allSides.bias : "Unavailable"}</button> &emsp;
                   <button>Confidence: {allSides.confidence ? allSides.confidence.replace("rating", "").trim() : "Unavailable"}</button>
                   {/* <p>Note: {allSides.agreement ? allSides.agreement : "Unavailable"} rater{allSides.agreement!=1?"s":null} agree{allSides.agreement==1?"s":null} with these scores while {allSides.disagreement ? allSides.disagreement : "Unavailable"} disagree{allSides.disagreement==1?"s":null}.</p> */}
-                  <p>
+                  <p className="footnote-style">
                     Note: {allSides.agreement ? `${allSides.agreement} rater${allSides.agreement !== 1 ? 's' : ''}` : 'Unavailable'}{' '}
                     agree{allSides.agreement === 1 ? 's' : ''} with these scores while{' '}
                     {allSides.disagreement ? `${allSides.disagreement} disagree${allSides.disagreement === 1 ? 's' : ''}` : 'Unavailable'}.
@@ -308,10 +308,10 @@ const AllTimeFavorites = () => {
                   {/* <hr className="individual_post_hr"/> */}
                   <h3>Related Articles</h3>
                   {relatedArticles.map((summaryItem, index) => (
-                      <li key={index}>{index+1}. <a href={summaryItem['url']}>{summaryItem['title'].substring(0, 65)}{summaryItem['title'].length>65?"...":null}</a></li>
+                      <li key={index} className="footnote-style">{index+1}. <a href={summaryItem['url']}>{summaryItem['title'].substring(0, 65)}{summaryItem['title'].length>65?"...":null}</a></li>
                   ))}
                   </ul>
-                   : <p><br/>Any recent related articles, if found, will be listed shortly.</p>}
+                   : <p className="footnote-style"><br/>Any recent related articles, if found, will be listed shortly.</p>}
                 </div>
               ) : (
                 <div className="all-sides-container">
