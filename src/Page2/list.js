@@ -35,7 +35,8 @@ const AllTimeFavorites = () => {
       }
     }
 
-    fetch('http://news-article-extraction.streamlit.app/get-top-news-articles/', { method: 'GET' })
+    // Data not found in localStorage or is older than 15 days, fetch from the API
+    fetch('https://filter-bubble.onrender.com/get-top-news-articles/', { method: 'GET' })
     // fetch('http://127.0.0.1:5000/get-top-news-articles/', { method: 'GET' })
       .then((response) => response.json())
       .then((json) => {
@@ -49,33 +50,7 @@ const AllTimeFavorites = () => {
       .catch((error) => {
         console.error('Error fetching top news articles:', error);
       });
-
-    // Data not found in localStorage or is older than 15 days, fetch from the API
-  //   fetch('https://news-article-extraction.streamlit.app/get-top-news-articles/', { method: 'GET' })
-  //   // fetch('http://127.0.0.1:5000/get-top-news-articles/', { method: 'GET' })
-  //     .then((response) => response.json())
-  //     .then((json) => {
-  //       setArticles(json);
-  //       setArticlesFetched(true);
-  //       localStorage.setItem(localStorageKey, JSON.stringify(json));
-
-  //       const currentTimestamp = new Date().toISOString();
-  //       localStorage.setItem(localStorageTimestampKey, currentTimestamp);
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error fetching top news articles:', error);
-  //     });
   }, []);
-
-
-  // useEffect(() => {
-  //   fetch('http://127.0.0.1:5000/get-top-news-articles/', { method: 'GET' })
-  //     .then(response => response.json())
-  //     .then(json => {
-  //       setArticles(json);
-  //       setArticlesFetched(true);
-  //     });
-  // }, []);
 
   useEffect(() => {
     if (post_title !== "") {
@@ -92,7 +67,8 @@ const AllTimeFavorites = () => {
   };
 
   const getArticleSummary = (data) => {
-    fetch('http://127.0.0.1:5000/get-article-summary/', {
+    fetch('https://filter-bubble.onrender.com/get-article-summary/', {
+    // fetch('http://127.0.0.1:5000/get-article-summary/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
@@ -102,7 +78,8 @@ const AllTimeFavorites = () => {
   };
 
   const getRedditPublicOpinion = (data) => {
-    fetch('http://127.0.0.1:5000/get-public-opinion-from-reddit/', {
+    fetch('https://filter-bubble.onrender.com/get-public-opinion-from-reddit/', {
+    // fetch('http://127.0.0.1:5000/get-public-opinion-from-reddit/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
@@ -112,7 +89,8 @@ const AllTimeFavorites = () => {
   };
 
   const getRelatedArticles = (data) => {
-    fetch('http://127.0.0.1:5000/get-related-articles/', {
+    fetch('https://filter-bubble.onrender.com/get-related-articles/', {
+    // fetch('http://127.0.0.1:5000/get-related-articles/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
